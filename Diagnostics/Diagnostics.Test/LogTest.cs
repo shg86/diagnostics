@@ -53,6 +53,5 @@ namespace Diagnostics.Test
         {
             Log.Message(Log.GetCurrentMethod(), "This is a custom message.", MessageType.Custom, "Custom title", @"c:\temp\customLogfile.txt");
         }
-
     }
 }

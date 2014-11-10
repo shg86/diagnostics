@@ -8,21 +8,37 @@ using System.Text;
 
 namespace Diagnostics
 {
+    /// <summary>
+    /// Type of messagge.
+    /// </summary>
     public enum MessageType { Error, Warning, Information, Custom }
 
+    /// <summary>
+    /// Class for logging activities.
+    /// </summary>
     public static class Log
     {
-        //INFO: Application information.
-        //ERROR: Something went wrong and the application can't continue anymore.
-        //WARNING: Something went wrong but the application can still continue.
+        /// <summary>
+        /// Logs a message to an (existing) text file.
+        /// </summary>
+        /// <param name="source">The source method.</param>
+        /// <param name="message">The message that should be logged.</param>
+        /// <param name="type">The type of message.</param>
+        /// <param name="customTitle">Optional custom type of message.</param>
+        /// <param name="filePath">Optional path and filename of the logfile.</param>
         public static void Message(string source, string message, MessageType type, string customTitle = "", string filePath = @"c:\temp\log.txt" )
         {
+            //INFO: Application information.
+            //ERROR: Something went wrong and the application can't continue anymore.
+            //WARNING: Something went wrong but the application can still continue.
+
             //TODO: the parameters should be send through a single object instead of loose parameters.
             //TODO: build exception handlers (eg. when the program can't access the directory/file).
             //TODO: filePath should be dynamic.
+            //TODO: make the ApplicationName dynamic.
 
             var sb = new StringBuilder();
-            sb.Append("[ApplicationName]"); //TOOD: make the ApplicationName dynamic.
+            sb.Append("[ApplicationName]"); 
             sb.Append(string.Format("[{0}] ", DateTime.Now));
 
             switch (type)
@@ -67,6 +83,10 @@ namespace Diagnostics
             }
         }
 
+        /// <summary>
+        /// Retrieves the current method name.
+        /// </summary>
+        /// <returns>The current method name.</returns>
         [MethodImpl(MethodImplOptions.NoInlining)]
         public static string GetCurrentMethod()
         {
