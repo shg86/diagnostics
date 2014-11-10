@@ -29,5 +29,23 @@ namespace Diagnostics.Test
         {
             Log.Message(Log.GetCurrentMethod(), "This is a custom message.", Log.MessageType.Custom, "Custom title");
         }
+
+        [TestMethod]
+        public void WriteInfoEvent()
+        {
+            LogEvent.Message("This is an info event.", System.Diagnostics.EventLogEntryType.Information);
+        }
+
+        [TestMethod]
+        public void WriteErrorEvent()
+        {
+            LogEvent.Message("This is an error event.", System.Diagnostics.EventLogEntryType.Error);
+        }
+
+        [TestMethod]
+        public void WriteWarningEvent()
+        {
+            LogEvent.Message("This is an warning event.", System.Diagnostics.EventLogEntryType.Warning);
+        }
     }
 }

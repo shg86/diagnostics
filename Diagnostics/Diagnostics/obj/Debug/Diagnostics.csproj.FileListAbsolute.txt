@@ -6,3 +6,4 @@ C:\Users\shg.HQ\Documents\GitHub\diagnostics\Diagnostics\Diagnostics\obj\Debug\D
 C:\Users\shg.HQ\Documents\GitHub\diagnostics\Diagnostics\Diagnostics\obj\Debug\Diagnostics.pdb
 C:\Users\shg.HQ\Documents\GitHub\diagnostics\Diagnostics\Diagnostics\bin\Debug\Diagnostics.dll
 C:\Users\shg.HQ\Documents\GitHub\diagnostics\Diagnostics\Diagnostics\bin\Debug\Diagnostics.pdb
+C:\Users\shg.HQ\Documents\GitHub\diagnostics\Diagnostics\Diagnostics\obj\Debug\Diagnostics.csprojResolveAssemblyReference.cache

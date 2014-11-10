@@ -23,39 +23,7 @@ namespace Diagnostics
         /// </summary>
         public enum MessageType { Error, Warning, Information, Custom }
 
-        private static string _FilePath
-        {
-            get
-            {
-                string filePath = ConfigurationManager.AppSettings["LogFile"];
 
-                if (!string.IsNullOrEmpty(filePath))
-                {
-                    return filePath;
-                }
-                else
-                {
-                    return string.Format("{0}\\{1}-logFile.txt", _GetApplicationDirectory(), _ApplicationName);
-                }
-            }
-        }
-
-        private static string _ApplicationName
-        {
-            get
-            {
-                string applicationName = ConfigurationManager.AppSettings["ApplicationName"];
-
-                if (!string.IsNullOrEmpty(applicationName))
-                {
-                    return applicationName;
-                }
-                else
-                {
-                    return "Unspecified application";
-                }
-            }
-        }
 
 
         /// <summary>
@@ -75,7 +43,7 @@ namespace Diagnostics
             //TODO: build exception handlers (eg. when the program can't access the directory/file).
             var sb = new StringBuilder();
 
-            sb.Append(string.Format("[{0}] ", _ApplicationName)); 
+            sb.Append(string.Format("[{0}] ", Settings.ApplicationName)); 
             sb.Append(string.Format("[{0}] ", DateTime.Now));
 
             switch (type)
@@ -114,16 +82,13 @@ namespace Diagnostics
 
         private static void _WriteToFile(string message)
         {
-            using (StreamWriter sw = File.AppendText(_FilePath))
+            using (StreamWriter sw = File.AppendText(Settings.FilePath))
             {
                 sw.WriteLine(message);
             }
         }
 
-        private static string _GetApplicationDirectory()
-        {
-            return AppDomain.CurrentDomain.BaseDirectory;
-        }
+
 
         /// <summary>
         /// Retrieves the current method name.
