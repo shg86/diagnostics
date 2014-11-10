@@ -1,0 +1,12 @@
+C:\Users\shg.HQ\Documents\GitHub\useful-functions\Diagnostics\Diagnostics.Test\bin\Debug\Diagnostics.Test.dll
+C:\Users\shg.HQ\Documents\GitHub\useful-functions\Diagnostics\Diagnostics.Test\bin\Debug\Diagnostics.Test.pdb
+C:\Users\shg.HQ\Documents\GitHub\useful-functions\Diagnostics\Diagnostics.Test\obj\Debug\Diagnostics.Test.csprojResolveAssemblyReference.cache
+C:\Users\shg.HQ\Documents\GitHub\useful-functions\Diagnostics\Diagnostics.Test\obj\Debug\Diagnostics.Test.dll
+C:\Users\shg.HQ\Documents\GitHub\useful-functions\Diagnostics\Diagnostics.Test\obj\Debug\Diagnostics.Test.pdb
+C:\Users\shg.HQ\Documents\GitHub\diagnostics\Diagnostics\Diagnostics.Test\bin\Debug\Diagnostics.Test.dll
+C:\Users\shg.HQ\Documents\GitHub\diagnostics\Diagnostics\Diagnostics.Test\bin\Debug\Diagnostics.Test.pdb
+C:\Users\shg.HQ\Documents\GitHub\diagnostics\Diagnostics\Diagnostics.Test\bin\Debug\Diagnostics.dll
+C:\Users\shg.HQ\Documents\GitHub\diagnostics\Diagnostics\Diagnostics.Test\bin\Debug\Diagnostics.pdb
+C:\Users\shg.HQ\Documents\GitHub\diagnostics\Diagnostics\Diagnostics.Test\obj\Debug\Diagnostics.Test.csprojResolveAssemblyReference.cache
+C:\Users\shg.HQ\Documents\GitHub\diagnostics\Diagnostics\Diagnostics.Test\obj\Debug\Diagnostics.Test.dll
+C:\Users\shg.HQ\Documents\GitHub\diagnostics\Diagnostics\Diagnostics.Test\obj\Debug\Diagnostics.Test.pdb

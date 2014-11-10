@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Diagnostics", "Diagnostics\Diagnostics.csproj", "{FAC04AEB-F477-4A42-87E6-9B0C458339FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Diagnostics.Test", "Diagnostics.Test\Diagnostics.Test.csproj", "{A30842AE-91F3-4949-A270-2E6F92770956}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FAC04AEB-F477-4A42-87E6-9B0C458339FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAC04AEB-F477-4A42-87E6-9B0C458339FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAC04AEB-F477-4A42-87E6-9B0C458339FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAC04AEB-F477-4A42-87E6-9B0C458339FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A30842AE-91F3-4949-A270-2E6F92770956}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A30842AE-91F3-4949-A270-2E6F92770956}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A30842AE-91F3-4949-A270-2E6F92770956}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A30842AE-91F3-4949-A270-2E6F92770956}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
