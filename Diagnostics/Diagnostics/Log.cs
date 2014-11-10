@@ -1,23 +1,63 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 
+//Requires 2 application parameters in the app.config (or web.config):
+//LogFile: the location and name of the logfile, eg. C:\temp\logfile.txt
+//ApplicationName: the name of the application, eg. ApplicationName
+
 namespace Diagnostics
 {
-    /// <summary>
-    /// Type of messagge.
-    /// </summary>
-    public enum MessageType { Error, Warning, Information, Custom }
-
     /// <summary>
     /// Class for logging activities.
     /// </summary>
     public static class Log
     {
+        /// <summary>
+        /// Type of messagge.
+        /// </summary>
+        public enum MessageType { Error, Warning, Information, Custom }
+
+        private static string _FilePath
+        {
+            get
+            {
+                string filePath = ConfigurationManager.AppSettings["LogFile"];
+
+                if (!string.IsNullOrEmpty(filePath))
+                {
+                    return filePath;
+                }
+                else
+                {
+                    return string.Format("{0}\\{1}-logFile.txt", _GetApplicationDirectory(), _ApplicationName);
+                }
+            }
+        }
+
+        private static string _ApplicationName
+        {
+            get
+            {
+                string applicationName = ConfigurationManager.AppSettings["ApplicationName"];
+
+                if (!string.IsNullOrEmpty(applicationName))
+                {
+                    return applicationName;
+                }
+                else
+                {
+                    return "Unspecified application";
+                }
+            }
+        }
+
+
         /// <summary>
         /// Logs a message to an (existing) text file.
         /// </summary>
@@ -26,19 +66,16 @@ namespace Diagnostics
         /// <param name="type">The type of message.</param>
         /// <param name="customTitle">Optional custom type of message.</param>
         /// <param name="filePath">Optional path and filename of the logfile.</param>
-        public static void Message(string source, string message, MessageType type, string customTitle = "", string filePath = @"c:\temp\log.txt" )
+        public static void Message(string source, string message, MessageType type, string customTitle = "")
         {
             //INFO: Application information.
             //ERROR: Something went wrong and the application can't continue anymore.
             //WARNING: Something went wrong but the application can still continue.
 
-            //TODO: the parameters should be send through a single object instead of loose parameters.
             //TODO: build exception handlers (eg. when the program can't access the directory/file).
-            //TODO: filePath should be dynamic.
-            //TODO: make the ApplicationName dynamic.
-
             var sb = new StringBuilder();
-            sb.Append("[ApplicationName]"); 
+
+            sb.Append(string.Format("[{0}] ", _ApplicationName)); 
             sb.Append(string.Format("[{0}] ", DateTime.Now));
 
             switch (type)
@@ -60,8 +97,7 @@ namespace Diagnostics
 
                 case MessageType.Custom:
 
-                    customTitle = customTitle.ToUpper();
-                    sb.Append(string.Format("[{0}] ", customTitle));
+                    sb.Append(string.Format("[{0}] ", customTitle.ToUpper()));
                     break;
 
                 default:
@@ -69,18 +105,24 @@ namespace Diagnostics
                     sb.Append("[UNKNOWN] ");
                     break;
             }
+
             sb.Append(string.Format("[{0}] ", source));
             sb.Append(message);
-            Console.WriteLine(sb.ToString());
-            _WriteToFile(sb.ToString(), filePath);
+
+            _WriteToFile(sb.ToString());
         }
 
-        private static void _WriteToFile(string message, string path)
+        private static void _WriteToFile(string message)
         {
-            using (StreamWriter sw = File.AppendText(path))
+            using (StreamWriter sw = File.AppendText(_FilePath))
             {
                 sw.WriteLine(message);
             }
+        }
+
+        private static string _GetApplicationDirectory()
+        {
+            return AppDomain.CurrentDomain.BaseDirectory;
         }
 
         /// <summary>
