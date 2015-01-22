@@ -19,6 +19,7 @@ namespace Diagnostics
         public static void Message(string message, System.Diagnostics.EventLogEntryType type, string logBook = "")
         {
             //Certain admin privileges are needed to execute this (to test run VS as admin).
+            //A test to see if submodules work.
 
             System.Diagnostics.EventLog appLog;
 
