@@ -20,6 +20,7 @@ namespace Diagnostics
         {
             //Certain admin privileges are needed to execute this (to test run VS as admin).
             //A test to see if submodules work.
+            //Another test.
 
             System.Diagnostics.EventLog appLog;
 
