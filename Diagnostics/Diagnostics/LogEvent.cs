@@ -23,6 +23,7 @@ namespace Diagnostics
             //Another test.
             //Final test.
             //Yet another test.
+            //Final final test.
 
             System.Diagnostics.EventLog appLog;
 
